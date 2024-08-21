@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -64,12 +63,13 @@ func init() {
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
-	home, err := os.UserHomeDir()
-	if err != nil {
-		log.Println("Unable to detect home directory. Please set data file using --datafile.")
-	}
+	// home, err := os.UserHomeDir()
+	// if err != nil {
+	// 	log.Println("Unable to detect home directory. Please set data file using --datafile.")
+	// }
 
-	rootCmd.PersistentFlags().StringVar(&dataFile, "datafile", home+string(os.PathSeparator)+".todos.json", "data file to store todos")
+	// rootCmd.PersistentFlags().StringVar(&dataFile, "datafile", home+string(os.PathSeparator)+".todos.json", "data file to store todos")
+	rootCmd.PersistentFlags().StringVar(&dataFile, "datafile", ".todos.json", "data file to store todos")
 }
 
 // initConfig reads in config file and ENV variables if set.
