@@ -61,7 +61,7 @@ func listRun(cmd *cobra.Command, args []string) {
 
 	w := tabwriter.NewWriter(os.Stdout, 3, 0, 1, ' ', 0)
 	for _, i := range items {
-		fmt.Fprintln(w, i.PrettyPriority()+"\t"+i.Text+"\t")
+		fmt.Fprintln(w, i.Label()+"\t"+i.PrettyPriority()+"\t"+i.Text+"\t")
 	}
 
 	w.Flush()
