@@ -6,7 +6,8 @@ import (
 )
 
 type Item struct {
-	Text string
+	Text     string
+	Priority int
 }
 
 func ReadItems(filename string) ([]Item, error) {
@@ -41,4 +42,15 @@ func SaveItems(filename string, items []Item) error {
 	}
 
 	return nil
+}
+
+func (i *Item) SetPriority(priority int) {
+	switch priority {
+	case 1:
+		i.Priority = 1
+	case 3:
+		i.Priority = 3
+	default:
+		i.Priority = 2
+	}
 }
